@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mobile{
+        battery;
+        memory;
+        brand;
+        armessage;
+        savemessage;
+        tomessage;
+        display;
+        status = false;
+
+
+        constructor(battery,memory,brand,savemessage,armessage,tomessage,display) {
+            this.battery = battery;
+            this.memory = memory;
+            this.brand = brand;
+            this.armessage = [];
+            this.savemessage = [];
+            this.tomessage = [];
+            this.display = [];
+        }
+        // getBattery(){
+        //     return this.battery;
+        // }
+        // getMemory() {
+        //     return this.memory;
+        // }
+        // getBrand() {
+        //     return this.brand;
+        // }
+        getViettinnhan(mobile,message){
+            mobile.tomessage.push(message);
+            this.battery--;
+        }
+        getSendMessage(mobile,message,mobi){
+            mobile.armessage.push(message);
+            this.battery--;
+            mobi.savemessage.push(message);
+        }
+        getDisplayInfor() {
+            document.write('battery: '+this.battery+'<br>');
+            document.write('brand: '+this.brand+'<br>');
+            document.write('memory: '+this.memory+'<br>');
+            document.write('armessage : '+this.armessage+'<br>');
+            document.write('tomessage : '+this.tomessage+'<br>');
+            document.write('savemessage : '+this.savemessage+'<br>');
+            // document.write('Writing: '+this.savemessage+'<br>');
+        }
+        getStatus(){
+            if (status===true){
+                alert("Máy đã bật");
+            }else if (status===false){
+                alert("Bật máy lên");
+            }
+        }
+    }
+    let iphone = new Mobile(100,0,"Iphone",[],[],[]);
+    document.write('<br>');
+    let nokia = new Mobile(80,0,'Nokia',[],[],[]);
+    iphone.getSendMessage(iphone,'làm tý ko',nokia);
+    nokia.getSendMessage(nokia,'ok',iphone);
+    iphone.getDisplayInfor();
+
+</script>
+</body>
+</html>

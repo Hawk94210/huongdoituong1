@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" id="chieudai" placeholder="Nhập chiều dài">
+<input type="text" id="chieurong" placeholder="Nhập chiều rộng">
+<button onclick="draw()">Draw</button>
+<canvas id="myCanvas" width="1330px" height="650px" style="border: 1px solid #d3d3d3"></canvas>
+<script>
+    class Square {
+        length;
+        width;
+
+        constructor(length, width) {
+            this.length = length;
+            this.width = width;
+        }
+
+        getLength() {
+            return length;
+        }
+
+        getWidth() {
+            return width;
+        }
+
+        setLength(length) {
+            this.length = length;
+        }
+
+        setWidth(width) {
+            this.width = width;
+        }
+
+        getPeremeter() {
+            return (this.width + this.length) * 2;
+        }
+
+        getArea() {
+            return (this.length * this.width);
+        }
+
+        creatSquare() {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            ctx.fillStyle = "red";
+            ctx.fillRect(0, 0, this.width, this.length);
+        }
+    }
+
+    function draw() {
+        let length = document.getElementById("chieudai").value;
+        let width = document.getElementById("chieurong").value;
+        let square = new Square(length, width);
+        square.creatSquare();
+        let area = square.getArea();
+        let peremeter = square.getPeremeter();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function confirmAnswe(answer) {
+      let result= " ";
+      if (answer) {
+          result = "Đăng nhập thành công";
+      }
+      else {
+          result = "Đăng nhập thất bại";
+      }
+      return result;
+  }
+  let answerConfirm = confirm("Đăng nhập");
+  let confirmAnswer = confirmAnswe(answerConfirm);
+  alert(confirmAnswer);
+</script>
+</body>
+</html>
